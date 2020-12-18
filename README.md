@@ -22,11 +22,11 @@ We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and t
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: `git push origin <firstName-lastName>`
+- [*] Create a forked copy of this project.
+- [*] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [*] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [*] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [*] Push commits: `git push origin <firstName-lastName>`
 
 ### Task 2: Project Requirements
 
@@ -68,6 +68,10 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics.
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
+- The major differences involve where they're stored, sessions being on the server and JWTs being in the client. Because sessions are on the server, we can do more to protect that information without the user having to worry about it, although the storage usage can add up quickly. On the other hand, JWTs don't require any storage on the server (although it can be done) and can be a bit safer in their own right. Though, if someone gets access to the token, they can use it to perform a cross-origin attack and gain access to user information on sites other than our own. 
 2. What does `bcryptjs` do to help us store passwords in a secure manner?
+- bcrypt (and other services like it) are used to hash the passwords provided by clients. Doing so is a one-way operation, meaning potential attackers cannot reverse the hashed password and gain access to a user's account.
 3. How are unit tests different from integration and end-to-end testing?
+- Integration testing checks how different pieces of the same app work and function together; unit testing targets one specific piece of an app to make sure it works; end-to-end testing is a top to bottom, full-spec test meant to check every facet of the application. 
 4. How does _Test Driven Development_ change the way we write applications and tests?
+- The core of TTD is writing tests _before_ you write code. By doing this, you build a sort of "roadmap" for the app you're trying to create, and can see how functional it is along the way. With TTD, we can make sure everything is passing and functional before we start to refactor and polish our work. 
