@@ -2,6 +2,7 @@ const db = require('../../data/dbConfig');
 
 module.exports = {
     getAll, 
+    getBy,
     getById, 
     insert
 };
@@ -9,6 +10,11 @@ module.exports = {
 function getAll() {
     return db('users').select('id', 'username');
 }
+
+function getBy(filter) {
+    return db('users').where(filter);
+}
+
 
 function getById(id) {
     return db('users').select('id', 'username')
